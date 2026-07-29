@@ -1,10 +1,19 @@
 package com.example.lab05_6733805143_1.controller;
 
-import com.example.coffeeshop.model.Coffee;
-import com.example.coffeeshop.service.CoffeeService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
 import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.lab05_6733805143_1.model.Coffee;
+import com.example.lab05_6733805143_1.service.CoffeeService;
 
 @RestController
 @RequestMapping("/coffees")
@@ -13,7 +22,7 @@ public class CoffeeController {
     @Autowired
     CoffeeService service;
 
-    @Getmapping
+    @GetMapping
     public List<Coffee> getAllCoffees() {
         return service.getAllCoffee();
     }
