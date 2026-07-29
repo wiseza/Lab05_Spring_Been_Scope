@@ -18,11 +18,11 @@ public Coffee() {
         return id;
     }
 
-    public int getName() {
+    public String getName() {
         return name;
     }
 
-    public int getPrice() {
+    public double getPrice() {
         return price;
     }
 
@@ -37,6 +37,6 @@ public Coffee() {
     public void setPrice(double price) {
         this.price = price;
     }
-    
+
 }
 
