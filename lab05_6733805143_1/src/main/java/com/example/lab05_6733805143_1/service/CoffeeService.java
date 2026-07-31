@@ -11,48 +11,56 @@ import com.example.lab05_6733805143_1.model.Coffee;
 public class CoffeeService {
 
     private List<Coffee> coffeeList = new ArrayList<>();
-    private int nextId = 3;
 
     public CoffeeService() {
-        new Coffee(1, "Espresso", 45);
-        new Coffee(2, "Latte", 55);
+        coffeeList.add(new Coffee(1L, "Espresso", 45));
+        coffeeList.add(new Coffee(2L, "Latte", 55));
     }
 
     public List<Coffee> getAllCoffee() {
         return coffeeList;
     }
 
-    public Coffee getCoffeeById(int id) {
+    public Coffee getCoffeeById(Long id) {
 
         for (int i = 0; i < coffeeList.size(); i++) {
-            if (coffeeList.get(i).getId() == id) {
+            if (coffeeList.get(i).getId().equals(id)) {
                 return coffeeList.get(i);
             }
         }
+
         return null;
     }
 
     public Coffee addCoffee(Coffee coffee) {
-        coffee.setId(nextId);
-        nextId++;
+        Long maxId = 0L;
+        for (Coffee c : coffeeList) {
+            if (c.getId() > maxId) {
+                maxId = c.getId();
+            }
+        }
+        coffee.setId(maxId + 1);
         coffeeList.add(coffee);
         return coffee;
     }
 
-    public Coffee updateCoffee(int id, Coffee coffee) {
+    public Coffee updateCoffee(Long id, Coffee coffee) {
+
         for (int i = 0; i < coffeeList.size(); i++) {
-            if (coffeeList.get(i).getId() == id) {
+            if (coffeeList.get(i).getId().equals(id)) {
                 coffeeList.get(i).setName(coffee.getName());
                 coffeeList.get(i).setPrice(coffee.getPrice());
                 return coffeeList.get(i);
             }
         }
+
         return null;
     }
 
-    public void deleteCoffee(int id) {
+    public void deleteCoffee(Long id) {
+
         for (int i = 0; i < coffeeList.size(); i++) {
-            if (coffeeList.get(i).getId() == id) {
+            if (coffeeList.get(i).getId().equals(id)) {
                 coffeeList.remove(i);
                 return;
             }
