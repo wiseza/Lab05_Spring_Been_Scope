@@ -28,7 +28,7 @@ public class CoffeeController {
     }
 
     @GetMapping("/{id}")
-    public Coffee getCoffee(@PathVariable int id) {
+    public Coffee getCoffee(@PathVariable Long id) {
         return service.getCoffeeById(id);
     }
 
@@ -38,13 +38,13 @@ public class CoffeeController {
     }
 
     @PutMapping("/{id}")
-    public Coffee updateCoffee(@PathVariable int id, @RequestBody Coffee coffee) {
+    public Coffee updateCoffee(@PathVariable Long id, @RequestBody Coffee coffee) {
 
         return service.updateCoffee(id, coffee);
     }
 
     @DeleteMapping("/{id}")
-    public void deleteCoffee(@PathVariable int id) {
+    public void deleteCoffee(@PathVariable Long id) {
         service.deleteCoffee(id);
     }
 
