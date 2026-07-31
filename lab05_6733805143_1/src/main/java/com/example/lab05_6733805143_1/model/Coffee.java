@@ -1,20 +1,20 @@
 package com.example.lab05_6733805143_1.model;
 
 public class Coffee {
-    private int id;
+    private Long id;
     private String name;
     private double price;
 
 public Coffee() {
     }
 
-    public Coffee(int id, String name, double price) {
+    public Coffee(Long id, String name, double price) {
         this.id = id;
         this.name = name;
         this.price = price;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
@@ -26,7 +26,7 @@ public Coffee() {
         return price;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
     
